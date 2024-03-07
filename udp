@@ -756,8 +756,8 @@ vps_info() {
 
 # [UDP - REQUEST]
 Menu_UDP_REQUEST() {
-  title_sub "\033[3;40m${a10:-•UDP REQUEST} Resleeved Net"
-  print_center -ama ' Release: v.5'
+  title_sub "\033[3;40m${a10:-•UDP REQUEST} •"
+  print_center -ama '  Release: v.5'
   print_center -ama ' UDP REQUEST'
   print_center -ama ' Tunnel App : SOCKSIP'
   msg -bar
@@ -772,8 +772,6 @@ Menu_UDP_REQUEST() {
   else
     state="\e[1m\e[31m[OFF]"
   fi
-  msg -bar0
-  msg -bar3
   print_center -ama "${a12:-Resleeved Net Menu}"
   msg -bar3
   echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-Activate/Deactivate UDP-REQUEST}") $state"
