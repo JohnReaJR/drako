@@ -755,7 +755,7 @@ vps_info() {
 }
 
 # [UDP - REQUEST]
-menu_udp_request() {
+Menu_UDP_REQUEST() {
   title_sub "\033[3;40m${a10:-•UDP REQUEST} Resleeved Net"
   print_center -ama ' Release: v.5'
   print_center -ama ' UDP REQUEST'
@@ -832,7 +832,7 @@ menu_main() {
   # handle option selection
   case $option in
   1)
-    menu_udp_request
+    Menu_UDP_REQUEST
     ;;
   2)
     vps_info
