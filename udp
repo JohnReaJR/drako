@@ -753,8 +753,8 @@ vps_info() {
   enter
 }
 
-# [UDP - Custom]
-menu_udp_custom() {
+# [UDP - REQUEST]
+menu_udp_request() {
   title_sub "\033[3;40m${a10:-•UDP REQUEST} by Resleeved"
   print_center -ama ' Release: v5'
   print_center -ama ' UDP REQUEST'
