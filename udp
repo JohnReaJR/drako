@@ -822,7 +822,7 @@ menu_main() {
   msg -bar3
   echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -teal "${a10:-VPS Info}")"
   msg -bar3
-  echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -verm2 "${a3:-Uninstall UDP REQUEST Manager}")"
+  echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -verm2 "${a3:-Uninstall UDP REQUEST}")"
   exit2home
 
   # prompt user for option selection
