@@ -537,8 +537,8 @@ new_user() {
   enter
 }
 
-uninstall_udp_manager() {
-  title "${a32:-Uninstall UDP REQUEST & Binaries}"
+Uninstall_UDP_REQUEST() {
+  title "${a32:-Uninstall UDP REQUEST}"
   read -rp " $(msg -ama "${a33:-Do you wish to continue? [Y/n]}:") " -e -i Y UNINS
   [[ $UNINS != @(Y|y|S|s) ]] && return
   systemctl stop request-server.service &>/dev/null
@@ -559,7 +559,7 @@ reset_udp_request() {
   if [[ $(systemctl is-active request-server.service) = 'active' ]]; then
     systemctl stop request-server.service &>/dev/null
     systemctl disable request-server.service &>/dev/null
-    print_center -ama "${a35:-UDP REQUEST reset done!}"
+    print_center -ama "${a35:-UDP REQUEST Reset Done!}"
   else
     systemctl start request-server.service &>/dev/null
     if [[ $(systemctl is-active request-server.service) = 'active' ]]; then
@@ -838,7 +838,7 @@ menu_main() {
     vps_info
     ;;
   3)
-    uninstall_udp_manager
+    Uninstall_UDP_REQUEST
     ;;
   0)
     exit
