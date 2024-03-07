@@ -1,5 +1,5 @@
 #!/bin/bash
-#Version : ⇢ 3.0
+#Release: v5
 udp_dir='/root/udp'
 source $udp_dir/module
 
@@ -538,12 +538,12 @@ new_user() {
 }
 
 uninstall_udp_manager() {
-  title "${a32:-Uninstall UDP-Manager & Binaries}"
+  title "${a32:-Uninstall UDP REQUEST & Binaries}"
   read -rp " $(msg -ama "${a33:-Do you wish to continue? [Y/n]}:") " -e -i Y UNINS
   [[ $UNINS != @(Y|y|S|s) ]] && return
-  systemctl stop custom-server.service &>/dev/null
-  systemctl disable custom-server.service &>/dev/null
-  rm -rf /etc/systemd/system/custom-server.service
+  systemctl stop request-server.service &>/dev/null
+  systemctl disable request-server.service &>/dev/null
+  rm -rf /etc/systemd/system/request-server.service
   rm -rf /root/udp
   systemctl stop udpgw.service &>/dev/null
   rm -rf /etc/systemd/system/udpgw.service
@@ -555,18 +555,18 @@ uninstall_udp_manager() {
 }
 
 reset_udp_custom() {
-  if [[ $(systemctl is-active custom-server.service) = 'active' ]]; then
-    systemctl stop custom-server.service &>/dev/null
-    systemctl disable custom-server.service &>/dev/null
-    print_center -ama "${a35:-UDP-Custom reset done!}"
+  if [[ $(systemctl is-active request-server.service) = 'active' ]]; then
+    systemctl stop request-server.service &>/dev/null
+    systemctl disable request-server.service &>/dev/null
+    print_center -ama "${a35:-UDP REQUEST reset done!}"
   else
-    systemctl start custom-server.service &>/dev/null
-    if [[ $(systemctl is-active custom-server.service) = 'active' ]]; then
-      systemctl enable custom-server.service &>/dev/null
-      systemctl start custom-server.service &>/dev/null
-      print_center -verd "${a36:-UDP-Custom started!}"
+    systemctl start request-server.service &>/dev/null
+    if [[ $(systemctl is-active request-server.service) = 'active' ]]; then
+      systemctl enable request-server.service &>/dev/null
+      systemctl start request-server.service &>/dev/null
+      print_center -verd "${a36:-UDP REQUEST Running!}"
     else
-      print_center -verm2 "${a37:-failed to start udp-custom.service!}"
+      print_center -verm2 "${a37:-failed to start request-server.service!}"
     fi
   fi
   enter
@@ -574,7 +574,7 @@ reset_udp_custom() {
 
 exclude() {
   title "${a20:-Exclude UDP ports}"
-  print_center -ama "${a21:-UDP CUSTOM covers full range of ports,}"
+  print_center -ama "${a21:-UDP REQUEST covers full range of ports,}"
   print_center -ama "${a22:-However, you can exclude UDP ports.}"
   msg -bar3
   print_center -ama "${a23:-Examples of ports you can exclude:}:"
@@ -610,7 +610,7 @@ exclude() {
 
 add_exclude() {
   title "${a20:-Exclude UDP ports}"
-  print_center -ama "${a21:-UDP-Request covers full range of ports,}"
+  print_center -ama "${a21:-UDP REQUEST covers full range of ports,}"
   print_center -ama "${a22:-However, you can exclude UDP ports.}"
   msg -bar3
   print_center -ama "${a23:-Examples of ports you can exclude:}:"
@@ -733,8 +733,8 @@ vps_info() {
   ram=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')
 
   clear
-  title_sub "\033[3;40m${a10:-•UDP REQUEST Manager} by InFiNitY"
-  print_center -ama ' Version: ⇢ 3.0'
+  title_sub "\033[3;40m${a10:-•UDP REQUEST} by InFiNitY"
+  print_center -ama ' Release: v5'
   print_center -ama ' VPS Info'
   msg -bar
   echo " "
@@ -755,9 +755,9 @@ vps_info() {
 
 # [UDP - Custom]
 menu_udp_custom() {
-  # title "\033[3;40m${a10:-• UDP REQUEST Manager} by InFiNitY"
-  title_sub "\033[3;40m${a10:-•UDP REQUEST Manager} by InFiNitY"
-  print_center -ama ' Version: 3.0'
+  # title "\033[3;40m${a10:-• UDP REQUEST} by InFiNitY"
+  title_sub "\033[3;40m${a10:-•UDP REQUEST} by InFiNitY"
+  print_center -ama ' Release: v5'
   print_center -ama ' UDP REQUEST'
   print_center -ama ' Tunnel App : SOCKSIP'
   msg -bar
@@ -767,7 +767,7 @@ menu_udp_custom() {
   echo " $(msg -verd ' ⇢  IP:') $(msg -azu "$request_public_ip")  $(msg -verd 'Ram:') $(msg -azu "$ram") $(msg -verd 'CPU:') $(msg -azu "$cpu")"
   msg -bar
 
-  if [[ $(systemctl is-active custom-server.service) = 'active' ]]; then
+  if [[ $(systemctl is-active request-server.service) = 'active' ]]; then
     state="\e[1m\e[32m[ON]"
   else
     state="\e[1m\e[31m[OFF]"
@@ -804,7 +804,7 @@ menu_udp_custom() {
 menu_main() {
   # title "\033[3;40m${a10:-• UDP Request Manager} •"
   main_title "\033[3;40m${a10:-• UDP REQUEST Manager} •"
-  print_center -ama 'Version: ⇢ 3.0'
+  print_center -ama 'Release: v5'
   print_center -ama 'by InFiNitY'
   msg -bar
 
