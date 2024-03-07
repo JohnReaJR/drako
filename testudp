@@ -756,10 +756,10 @@ vps_info() {
 
 # [UDP - REQUEST]
 Menu_UDP_REQUEST() {
-  title_sub "\033[3;40m${a10:-•UDP REQUEST} Resleeved Net"
-  print_center -ama ' Release: v.5'
-  print_center -ama ' UDP REQUEST'
-  print_center -ama ' Tunnel App : SOCKSIP'
+  title_sub "\033[3;40m${a10:-• UDP REQUEST} •"
+  print_center -ama 'Release: v.5'
+  print_center -ama 'Resleeved Net'
+  print_center -ama 'Tunnel App : SOCKSIP'
   msg -bar
 
   ram=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
@@ -772,11 +772,9 @@ Menu_UDP_REQUEST() {
   else
     state="\e[1m\e[31m[OFF]"
   fi
+  print_center -ama "${a12:-Resleeved Net Menu}"
+  msg -bar3
   echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-Activate/Deactivate UDP-REQUEST}") $state"
-  msg -bar0
-  msg -bar3
-  print_center -ama "${a12:-QUICK MENU}"
-  msg -bar3
   echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -verd "${a6:-Create User}")"
   echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -verm2 "${a7:-Remove User}")"
   echo " $(msg -verd "[4]") $(msg -verm2 '>') $(msg -ama "${a8:-Renew User}")"
@@ -802,7 +800,6 @@ Menu_UDP_REQUEST() {
 
 # [MAIN MENU]A
 menu_main() {
-  # title "\033[3;40m${a10:-• UDP Request} •"
   main_title "\033[3;40m${a10:-• UDP REQUEST} •"
   print_center -ama 'Release: v.5'
   print_center -ama 'Resleeved Net'
@@ -817,7 +814,7 @@ menu_main() {
   msg -bar0
 
   # print options menu
-  print_center -ama "${a12:-CHOOSE UDP CORE}"
+  print_center -ama "${a12:-Resleeved Net UDP}"
   msg -bar3
   echo " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -verd "${a6:-UDP REQUEST}")"
   msg -bar3
