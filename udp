@@ -545,6 +545,7 @@ uninstall_udp_manager() {
   systemctl disable request-server.service &>/dev/null
   rm -rf /etc/systemd/system/request-server.service
   rm -rf /root/udp
+  rm -rf /usr/bin/udp
   systemctl stop udpgw.service &>/dev/null
   rm -rf /etc/systemd/system/udpgw.service
   rm -rf /usr/bin/udpgw
