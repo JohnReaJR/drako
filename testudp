@@ -774,7 +774,7 @@ Menu_UDP_REQUEST() {
   fi
   print_center -ama "${a12:-Resleeved Net Menu}"
   msg -bar3
-  echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-Activate/Deactivate UDP-REQUEST}") $state"
+  echo -e " $(msg -verd "[1]") $(msg -verm2 '>') $(msg -azu "${a2:-Turn On/Off UDP}") $state"
   echo " $(msg -verd "[2]") $(msg -verm2 '>') $(msg -verd "${a6:-Create User}")"
   echo " $(msg -verd "[3]") $(msg -verm2 '>') $(msg -verm2 "${a7:-Remove User}")"
   echo " $(msg -verd "[4]") $(msg -verm2 '>') $(msg -ama "${a8:-Renew User}")"
