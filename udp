@@ -554,7 +554,7 @@ uninstall_udp_manager() {
   exit
 }
 
-reset_udp_custom() {
+reset_udp_request() {
   if [[ $(systemctl is-active request-server.service) = 'active' ]]; then
     systemctl stop request-server.service &>/dev/null
     systemctl disable request-server.service &>/dev/null
