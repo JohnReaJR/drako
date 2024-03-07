@@ -756,10 +756,10 @@ vps_info() {
 
 # [UDP - REQUEST]
 Menu_UDP_REQUEST() {
-  title_sub "\033[3;40m${a10:-•UDP REQUEST} •"
-  print_center -ama '  Release: v.5'
-  print_center -ama ' UDP REQUEST'
-  print_center -ama ' Tunnel App : SOCKSIP'
+  title_sub "\033[3;40m${a10:-• UDP REQUEST} •"
+  print_center -ama 'Release: v.5'
+  print_center -ama 'Resleeved Net'
+  print_center -ama 'Tunnel App : SOCKSIP'
   msg -bar
 
   ram=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
@@ -800,7 +800,6 @@ Menu_UDP_REQUEST() {
 
 # [MAIN MENU]A
 menu_main() {
-  # title "\033[3;40m${a10:-• UDP Request} •"
   main_title "\033[3;40m${a10:-• UDP REQUEST} •"
   print_center -ama 'Release: v.5'
   print_center -ama 'Resleeved Net'
